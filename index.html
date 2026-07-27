@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ихтияр Иззатов — Сертификаты</title>
+<style>
+  :root{
+    --bg: #0b0f14;
+    --panel: #101720;
+    --panel-border: #1f2a36;
+    --text: #dbe4ec;
+    --text-dim: #7c8a99;
+    --accent: #3ddc97;
+    --accent-dim: #23443a;
+    --amber: #e8a33d;
+    --mono: 'JetBrains Mono','Consolas',monospace;
+    --sans: 'Inter','Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:
+      radial-gradient(circle at 15% 0%, #101a24 0%, var(--bg) 45%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    min-height:100vh;
+    padding:48px 20px 80px;
+  }
+  .wrap{max-width:920px; margin:0 auto;}
+
+  /* ---- header: looks like a system status bar ---- */
+  header{
+    border:1px solid var(--panel-border);
+    background:var(--panel);
+    border-radius:10px;
+    padding:22px 28px;
+    margin-bottom:36px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .id-block{display:flex; align-items:center; gap:16px;}
+  .avatar{
+    width:52px; height:52px; border-radius:8px;
+    background:linear-gradient(135deg, var(--accent-dim), #0e1a15);
+    border:1px solid var(--accent);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); color:var(--accent); font-weight:700; font-size:18px;
+  }
+  .id-text h1{font-size:19px; font-weight:600; letter-spacing:.2px;}
+  .id-text p{font-family:var(--mono); font-size:12.5px; color:var(--text-dim); margin-top:3px;}
+  .status{
+    font-family:var(--mono); font-size:12px; color:var(--accent);
+    display:flex; align-items:center; gap:8px;
+  }
+  .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent);}
+
+  .section-label{
+    font-family:var(--mono); font-size:12px; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--text-dim); margin:36px 0 14px 4px; display:flex; align-items:center; gap:10px;
+  }
+  .section-label::after{content:""; flex:1; height:1px; background:var(--panel-border);}
+
+  /* ---- certificate cards, laid out like log entries ---- */
+  .cert-list{display:flex; flex-direction:column; gap:14px;}
+  .cert{
+    border:1px solid var(--panel-border);
+    background:var(--panel);
+    border-radius:10px;
+    padding:20px 22px;
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:20px;
+    align-items:center;
+    transition:border-color .15s ease, transform .15s ease;
+    text-decoration:none;
+    color:inherit;
+  }
+  .cert:hover{border-color:var(--accent); transform:translateY(-1px);}
+  .cert-index{
+    font-family:var(--mono); color:var(--text-dim); font-size:13px;
+    width:34px;
+  }
+  .cert-thumb{
+    width:64px; height:46px; border-radius:6px; overflow:hidden;
+    border:1px solid var(--panel-border); background:#0d1420;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .cert-thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .cert-body{min-width:0;}
+  .cert-title{font-size:15.5px; font-weight:600; color:var(--text); margin-bottom:4px;}
+  .cert-meta{font-family:var(--mono); font-size:12px; color:var(--text-dim);}
+  .cert-meta span{color:var(--amber);}
+  .cert-action{
+    font-family:var(--mono); font-size:12px; color:var(--accent);
+    border:1px solid var(--accent-dim); padding:6px 12px; border-radius:6px;
+    white-space:nowrap;
+  }
+
+  /* row layout collapses on mobile */
+  @media (max-width:560px){
+    .cert{grid-template-columns:auto 1fr; grid-template-areas:"thumb body" "action action";}
+    .cert-index{display:none;}
+    .cert-thumb{grid-area:thumb;}
+    .cert-body{grid-area:body;}
+    .cert-action{grid-area:action; justify-self:start; margin-top:10px;}
+  }
+
+  footer{
+    margin-top:50px; text-align:center;
+    font-family:var(--mono); font-size:11.5px; color:var(--text-dim);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="id-block">
+      <div class="avatar">ИИ</div>
+      <div class="id-text">
+        <h1>Ихтияр Иззатов</h1>
+        <p>IT Specialist · System Administration · Баку, Азербайджан</p>
+      </div>
+    </div>
+    <div class="status"><span class="dot"></span>PROFILE ACTIVE</div>
+  </header>
+
+  <div class="section-label">Сертификаты</div>
+
+  <div class="cert-list">
+
+    <a class="cert" href="certificates/google-it-support.pdf" target="_blank" rel="noopener">
+      <div class="cert-index">01</div>
+      <div class="cert-thumb"><img src="certificates/google-it-support-thumb.jpg" alt=""></div>
+      <div class="cert-body">
+        <div class="cert-title">Google IT Support Specialist</div>
+        <div class="cert-meta">Coursera · выдан <span>2024</span></div>
+      </div>
+      <div class="cert-action">Открыть →</div>
+    </a>
+
+    <a class="cert" href="certificates/example-2.pdf" target="_blank" rel="noopener">
+      <div class="cert-index">02</div>
+      <div class="cert-thumb"><img src="certificates/example-2-thumb.jpg" alt=""></div>
+      <div class="cert-body">
+        <div class="cert-title">Название сертификата</div>
+        <div class="cert-meta">Организация · выдан <span>ГГГГ</span></div>
+      </div>
+      <div class="cert-action">Открыть →</div>
+    </a>
+
+    <!--
+      Чтобы добавить новый сертификат — скопируй один блок <a class="cert">...</a>
+      и поменяй: ссылку href, картинку в cert-thumb, название и организацию/год.
+    -->
+
+  </div>
+
+  <footer>Обновлено вручную · страница размещена на GitHub Pages</footer>
+
+</div>
+</body>
+</html>
